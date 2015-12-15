@@ -1,0 +1,11 @@
+crud_contacts:
+    resource: "@CrudBundle/Controller/ContactsController.php"
+    type:     annotation
+
+crud:
+    resource: "@CrudBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: "@AppBundle/Controller/"
+    type:     annotation

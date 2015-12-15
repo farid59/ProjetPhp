@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Les contacts</h1>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Societe</th>
+                <th>Adresse</th>
+                <th>Numero</th>
+                <th>Email</th>
+                <th>Siteweb</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for contact in contacts %}
+            <tr>
+                <td><a href="{{ path('contacts_show', { 'id': contact.id }) }}">{{ contact.id }}</a></td>
+                <td>{{ contact.nom }}</td>
+                <td>{{ contact.prenom }}</td>
+                <td>{{ contact.societe }}</td>
+                <td>{{ contact.adresse }}</td>
+                <td>{{ contact.numero }}</td>
+                <td>{{ contact.email }}</td>
+                <td>{{ contact.siteweb }}</td>
+                <td>{{ contact.statut }}</td>
+                <td>
+                    <ul class="list-unstyled list-inline">
+                        <li>
+                            <a href="{{ path('contacts_show', { 'id': contact.id }) }}">voir</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('contacts_edit', { 'id': contact.id }) }}">modifier</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul class="list-unstyled">
+        <li>
+            <a class="btn btn-primary" href="{{ path('contacts_new') }}">Créer une nouvelle entrée</a>
+        </li>
+    </ul>
+{% endblock %}

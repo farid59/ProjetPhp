@@ -2,59 +2,63 @@
 
 {% block body %}
     <h1>Contacts</h1>
-
-    <table>
+    <div class="col-sm-4">
+    <table class="table table-hover">
         <tbody>
-            <tr>
+            <tr class="active">
                 <th>Id</th>
                 <td>{{ contact.id }}</td>
             </tr>
-            <tr>
+            <tr class="success">
                 <th>Nom</th>
                 <td>{{ contact.nom }}</td>
             </tr>
-            <tr>
+            <tr class="active">
                 <th>Prenom</th>
                 <td>{{ contact.prenom }}</td>
             </tr>
-            <tr>
+            <tr class="danger">
                 <th>Societe</th>
                 <td>{{ contact.societe }}</td>
             </tr>
-            <tr>
+            <tr class="active">
                 <th>Adresse</th>
                 <td>{{ contact.adresse }}</td>
             </tr>
-            <tr>
+            <tr class="info">
                 <th>Numero</th>
                 <td>{{ contact.numero }}</td>
             </tr>
-            <tr>
+            <tr class="active">
                 <th>Email</th>
                 <td>{{ contact.email }}</td>
             </tr>
-            <tr>
+            <tr class="warning">
                 <th>Siteweb</th>
                 <td>{{ contact.siteweb }}</td>
             </tr>
-            <tr>
+            <tr class="active">
                 <th>Statut</th>
                 <td>{{ contact.statut }}</td>
             </tr>
         </tbody>
     </table>
-
-    <ul>
-        <li>
-            <a href="{{ path('contacts_index') }}">Back to the list</a>
+    </div>
+    <div class="col-sm-4" style="margin-top:7%">
+    <ul class="list-unstyled">
+        <li class="text-center">
+            <a class="btn btn-success" href="{{ path('contacts_index') }}">Back to the list</a>
         </li>
-        <li>
-            <a href="{{ path('contacts_edit', { 'id': contact.id }) }}">Edit</a>
+        <hr>
+        <li class="text-center">
+            <a class="btn btn-warning" href="{{ path('contacts_edit', { 'id': contact.id }) }}">Edit</a>
         </li>
-        <li>
+        <hr>
+        <li class="text-center">
             {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
+                <input type="submit" class="btn btn-danger" value="Delete">
             {{ form_end(delete_form) }}
         </li>
     </ul>
+    </div>
 {% endblock %}

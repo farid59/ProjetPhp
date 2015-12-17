@@ -12,7 +12,7 @@ use CrudBundle\Form\ContactsType;
 /**
  * Contacts controller.
  *
- * @Route("/contacts")
+ * @Route("/")
  */
 class ContactsController extends Controller
 {
@@ -62,7 +62,7 @@ class ContactsController extends Controller
     /**
      * Finds and displays a Contacts entity.
      *
-     * @Route("/{id}", name="contacts_show")
+     * @Route("/{id}", name="contacts_show", requirements={"id"="\d+"})
      * @Method("GET")
      */
     public function showAction(Contacts $contact)
@@ -78,7 +78,7 @@ class ContactsController extends Controller
     /**
      * Displays a form to edit an existing Contacts entity.
      *
-     * @Route("/{id}/edit", name="contacts_edit")
+     * @Route("/{id}/edit", name="contacts_edit", requirements={"id"="\d+"})
      * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, Contacts $contact)
@@ -91,8 +91,8 @@ class ContactsController extends Controller
             $em = $this->getDoctrine()->getManager();
             $em->persist($contact);
             $em->flush();
-
-            return $this->redirectToRoute('contacts_edit', array('id' => $contact->getId()));
+            return $this->redirectToRoute('contacts_index');
+            // return $this->redirectToRoute('contacts_edit', array('id' => $contact->getId()));
         }
 
         return $this->render('contacts/edit.html.twig', array(
@@ -105,7 +105,7 @@ class ContactsController extends Controller
     /**
      * Deletes a Contacts entity.
      *
-     * @Route("/{id}", name="contacts_delete")
+     * @Route("/{id}", name="contacts_delete", requirements={"id"="\d+"})
      * @Method("DELETE")
      */
     public function deleteAction(Request $request, Contacts $contact)

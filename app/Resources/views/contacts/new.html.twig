@@ -4,13 +4,72 @@
     <h1>Contacts creation</h1>
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type="submit" value="Create" />
-    {{ form_end(form) }}
+<div class="col-md-4 ">
+    <div class="form-group">
+      {{ form_label(form.nom, "", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+      <div class="col-sm-11">
+        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+    <div class="form-group">
+      {{ form_label(form.prenom, "", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+      <div class="col-sm-11">
+        {{ form_widget(form.prenom, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+    <div class="form-group">
+      {{ form_label(form.societe, "", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+      <div class="col-sm-11">
+        {{ form_widget(form.societe, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+    <div class="form-group">
+      {{ form_label(form.adresse, "", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+      <div class="col-sm-11">
+        {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+    <div class="form-group">
+      {{ form_label(form.numero, "", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+      <div class="col-sm-11">
+        {{ form_widget(form.numero, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+    <div class="form-group">
+      {{ form_label(form.email, "", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+      <div class="col-sm-11">
+        {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>    
+    <div class="form-group">
+      {{ form_label(form.siteweb, "", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+      <div class="col-sm-11">
+        {{ form_widget(form.siteweb, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
+    <div class="form-group">
+      {{ form_label(form.statut, "", {'label_attr': {'class': 'col-sm-1 control-label'}}) }}
+      <div class="col-sm-11">
+        {{ form_widget(form.statut, {'attr': {'class': 'form-control'}}) }}
+      </div>
+    </div>
 
-    <ul>
-        <li>
-            <a href="{{ path('contacts_index') }}">Back to the list</a>
-        </li>
-    </ul>
+    <div class="row" >
+        <div class="col-sm-4" style="margin-top:20px">
+            <ul class="list-unstyled">
+                <li>
+                    <a class="btn btn-info" href="{{ path('contacts_index') }}">Back to the list</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-4 col-sm-offset-4" style="margin-top:20px">
+            {{ form_widget(form) }}
+            <input type="submit" class="btn btn-success" value="Create" />
+            {{ form_end(form) }}
+        </div>
+    </div>
+        
+
+
+    </div>
 {% endblock %}

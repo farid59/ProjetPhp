@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    {% block stylesheets %}
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" >
+        <link rel="stylesheet" href="{{asset('css/style.css')}}" >
+    {% endblock %}
+</head>
+<body>
+
+
+    {% if app.request.hasPreviousSession %}
+        {% for type, messages in app.session.flashbag.all() %}
+            {% for message in messages %}
+                <div class="flash-{{ type }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+    {% endif %}
+
+    <div class="container">     
+        <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3"> 
+            
+            <div class="row" style="text-align: center;">                
+                  <img src="{{ asset('img/logo.png') }}" height="250">
+            </div>
+
+            <div class="panel panel-default" >
+                <div class="panel-heading">
+                    <div class="panel-title text-center">EASY Platform</div>
+                </div>     
+
+                <div class="panel-body" >
+                    {% block fos_user_content %}
+                    {% endblock fos_user_content %}
+                </div>                     
+            </div>  
+        </div>
+    </div>
+    {% block javascripts %}
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" ></script>
+        <script type="text/javascript" scr="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+    {% endblock %}
+</body>
+</html>
+
+
+
